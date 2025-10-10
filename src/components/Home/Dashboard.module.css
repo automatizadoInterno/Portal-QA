@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin-top: 40px;
+  color: rgb(202, 202, 202);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+  font-size: 1rem;
+  padding: 0 30px;
+}
+
+.linkContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.outletContainer {
+  padding-right: 30px;
+}
+
+@media (min-width: 1600px) {
+  .outletContainer {
+    padding-right: 350px;
+  }
+}
