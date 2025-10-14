@@ -1,9 +1,3 @@
 {
-  "_comentario_desenvolvimento_local": {
-    "source": "/api/(.*)",
-    "destination": "/api/$1"
-  },
-  "_comentario_deploy_vercel": { "source": "/(.*)", "destination": "/" },
-
   "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
