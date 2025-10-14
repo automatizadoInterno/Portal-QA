@@ -17,8 +17,14 @@ const Testes = () => {
           </a>
         </div>
         <div className={styles.card}>
-          <h2>WEB</h2>
-          <p>Relatórios dos ultimos testes de API executados via Pipeline</p>
+          <a
+            href="https://automatizadointerno.github.io/relatorios-web/"
+            target="blank"
+          >
+            {" "}
+            <h2>WEB</h2>
+            <p>Relatórios dos ultimos testes de WEB executados via Pipeline</p>
+          </a>
         </div>
       </div>
     </div>

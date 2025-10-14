@@ -10,3 +10,9 @@
   color: #ff420a;
   padding: 0 30px;
 }
+
+@media (max-width: 920px) {
+  .logo {
+    padding: 0 15px;
+  }
+}

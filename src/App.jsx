@@ -1,12 +1,11 @@
-import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Relatorio from "./components/Relatorio.jsx";
 import Header from "./components/Header/Header.jsx";
 import Dashboard from "./components/Home/Dashboard.jsx";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Email from "./components/Home/Deploys/Email.jsx";
+import ServicosInternos from "./components/Home/Deploys/ServicosInternos.jsx";
+import Relatorio from "./components/Home/Deploys/Relatorios/Relatorio.jsx";
+import ChamadosSemana from "./components/Home/Deploys/Relatorios/ChamadosSemana.jsx";
 import Testes from "./components/Home/TestesAutomatizados/Testes.jsx";
-import ChamadosSemana from "./components/ChamadosSemana.jsx"; // import do novo componente
 
 const App = () => {
   return (
@@ -16,10 +15,13 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<Dashboard />}>
-              <Route index element={<Email />} />
+              <Route index element={<ServicosInternos />} />
               <Route path="testes" element={<Testes />} />
               <Route path="relatorioDeploy" element={<Relatorio />} />
-              <Route path="relatorioChamados" element={<ChamadosSemana />} /> {/* nova rota */}
+              <Route
+                path="relatorioChamados"
+                element={<ChamadosSemana />}
+              />{" "}
             </Route>
           </Routes>
         </BrowserRouter>

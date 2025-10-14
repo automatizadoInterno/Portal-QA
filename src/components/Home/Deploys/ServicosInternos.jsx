@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./Email.module.css";
+import styles from "./ServicosInternos.module.css";
 
 const Email = () => {
   return (
@@ -12,7 +12,7 @@ const Email = () => {
             <h2>Email de Deploy</h2>
           </div>
         </Link>
-        
+
         <Link to={"relatorioChamados"}>
           <div className={styles.card}>
             <h2>Feedback Semanal RUN</h2>

@@ -12,7 +12,7 @@ const Dashboard = () => {
               <span>
                 <img src="assets/foguete.png" alt="" />
               </span>{" "}
-              Deploys
+              <p className={styles.navItem}>Deploys</p>
             </Link>
           </li>
           <li>
@@ -20,7 +20,9 @@ const Dashboard = () => {
               <span>
                 <img src="assets/frasco.png" alt="" />
               </span>{" "}
-              Testes <br /> Automatizados
+              <p className={styles.navItem}>
+                Testes <br /> Automatizados
+              </p>
             </Link>
           </li>
         </ul>

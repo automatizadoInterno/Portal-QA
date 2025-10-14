@@ -43,3 +43,32 @@
   background: #aa2e08;
   transition: 0.1s;
 }
+
+@media (max-width: 920px) {
+  .card {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr;
+    background: rgb(20, 20, 20);
+    border: 1.5px solid #2b2b2b;
+    border-radius: 10px;
+    padding: 15px;
+  }
+
+  .card h3 {
+    font-size: 0.95rem;
+  }
+
+  .card p {
+    font-size: 0.65rem;
+  }
+
+  .btnEnviar button {
+    padding: 15px 30px;
+    border-radius: 10px;
+    background: #ff420a;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+}

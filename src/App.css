@@ -74,3 +74,10 @@ a:hover {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 920px) {
+  .loading {
+    display: flex;
+    justify-self: center;
+  }
+}

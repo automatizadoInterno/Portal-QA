@@ -11,7 +11,16 @@
   gap: 30px;
   margin-top: 20px;
   font-size: 1rem;
-  padding: 0 30px;
+  padding: 0 0 0 30px;
+}
+
+.navItem {
+  font-size: 0.85rem;
+}
+
+.linkContainer span {
+  height: 24px;
+  width: 24px;
 }
 
 .linkContainer {
@@ -26,5 +35,19 @@
 @media (min-width: 1600px) {
   .outletContainer {
     padding-right: 350px;
+  }
+}
+
+@media (max-width: 920px) {
+  .navItem {
+    display: none;
+  }
+
+  .nav {
+    padding: 0 0 0 15px;
+  }
+
+  .outletContainer {
+    padding-right: 15px;
   }
 }
