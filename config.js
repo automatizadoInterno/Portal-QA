@@ -10,7 +10,7 @@ export default {
       queryIdGuid: "7a4aae0b-9f3c-4252-9d99-add3fafcaee6" 
     }
   ],
-  destinatario: "lucas.s.camargo2022@outlook.com",
+  destinatario: "comunicadodeploy@buonny.com.br",
   bcc_list: ["leonardo.baestero@buonny.com.br"],
   assunto: "Relatório Diário de Deploy",
 };
