@@ -15,7 +15,7 @@ const Email = () => {
 
         <Link to={"relatorioChamados"}>
           <div className={styles.card}>
-            <h2>Feedback Semanal RUN</h2>
+            <h2>Feedback RUN</h2>
           </div>
         </Link>
       </div>

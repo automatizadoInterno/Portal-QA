@@ -1,7 +1,6 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-  padding-left: 0 30px;
   gap: 20px;
 }
 
@@ -15,11 +14,10 @@
   background: rgb(20, 20, 20);
   border: 1.5px solid #2b2b2b;
   border-radius: 10px;
-  white-space: nowrap;
   padding: 80px;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 920px) {
   .cardContainer {
     grid-template-columns: 1fr;
   }
