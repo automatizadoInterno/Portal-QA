@@ -102,7 +102,7 @@ const Relatorio = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(null);
   const [isSending, setIsSending] = useState(false);
   useEffect(() => {
     fetch("/api/report")
@@ -128,12 +128,10 @@ const Relatorio = () => {
 
   const handleSendEmail = async () => {
     setIsSending(true);
-    setStatus("Enviando...");
     try {
-      const emailHtml = generateEmailHtml(items); // Gera o HTML na hora
+      const emailHtml = generateEmailHtml(items);
 
       const resp = await fetch("/api/send", {
-        // Rota correta
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ html: emailHtml }),
@@ -143,9 +141,10 @@ const Relatorio = () => {
       if (!resp.ok || !result.success)
         throw new Error(result.error || "Falha ao enviar e-mail");
 
-      setStatus("E-mail enviado com sucesso!");
+      setStatus(true);
     } catch (err) {
-      setStatus(`Erro: ${err.message}`);
+      setStatus(false);
+      console.log(err.message);
     } finally {
       setIsSending(false);
     }
@@ -167,6 +166,12 @@ const Relatorio = () => {
 
   return (
     <div className={`${styles.container} animeLeft`}>
+      {status === null ? null : status ? (
+        <p style={{ color: "green" }}>Email enviado com sucesso!</p>
+      ) : (
+        <p style={{ color: "red" }}>Falha ao enviar Email</p>
+      )}
+
       <div className={styles.btnEnviar}>
         <button
           onClick={handleSendEmail}
