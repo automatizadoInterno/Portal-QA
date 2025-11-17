@@ -30,7 +30,8 @@
   justify-content: end;
 }
 
-.btnEnviar button {
+.btnEnviar button,
+.btnGeral {
   padding: 15px 30px;
   border-radius: 10px;
   background: #ff420a;
@@ -39,9 +40,14 @@
   cursor: pointer;
 }
 
+.btnGeral:hover,
 .btnEnviar button:hover {
   background: #aa2e08;
   transition: 0.1s;
+}
+
+.btnGeral {
+  margin-bottom: 20px;
 }
 
 @media (max-width: 920px) {

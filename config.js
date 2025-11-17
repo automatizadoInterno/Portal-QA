@@ -7,10 +7,10 @@ export default {
   queriesChamados: [
     {
       project: "RUN",
-      queryIdGuid: "7a4aae0b-9f3c-4252-9d99-add3fafcaee6" 
-    }
+      queryIdGuid: "7a4aae0b-9f3c-4252-9d99-add3fafcaee6",
+    },
   ],
-  destinatario: "lucas.camargo@buonny.com.br",
+  destinatario: "leonardo.baestero@buonny.com.br",
   bcc_list: ["leonardo.baestero@buonny.com.br"],
   assunto: "Relatório Diário de Deploy",
 };

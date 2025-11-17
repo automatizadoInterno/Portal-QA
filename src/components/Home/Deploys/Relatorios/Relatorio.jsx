@@ -5,6 +5,7 @@ function generateEmailHtml(items) {
   const cssStyles = `
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
+       background-color: #f3f3f3; 
     }
     .container {
       max-width: 1100px;
@@ -42,7 +43,6 @@ function generateEmailHtml(items) {
 
   const tableRows = items
     .map((item) => {
-      // Limpa o resumo separadamente para manter o código legível
       const resumoLimpo = (item.Resumo || "").replace(
         /<div[^>]*>|<\/div>|<span[^>]*>|<\/span>|<br\s*\/?>/gi,
         ""
@@ -98,19 +98,23 @@ function generateEmailHtml(items) {
     </html>
   `;
 }
+
 const Relatorio = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(null);
   const [isSending, setIsSending] = useState(false);
+  const [previewHtml, setPreviewHtml] = useState(null);
+  const [showPreview, setShowPreview] = useState(false);
+
   useEffect(() => {
     fetch("/api/report")
       .then((res) => res.json())
       .then((result) => {
         if (result.success) {
           if (result.data.length === 0) {
-            setError("Nenhum PBI dissponível para envio");
+            setError("Nenhum PBI disponível para envio");
             setItems([]);
           } else {
             setItems(result.data);
@@ -150,16 +154,16 @@ const Relatorio = () => {
     }
   };
 
+  const handlePreview = () => {
+    const emailHtml = generateEmailHtml(items);
+    setPreviewHtml(emailHtml);
+    setShowPreview(true);
+  };
+
   if (loading) return <p className="loading"></p>;
   if (error)
     return (
-      <p
-        className="animeLeft"
-        style={{
-          color: "red",
-        }}
-      >
-        {" "}
+      <p className="animeLeft" style={{ color: "red" }}>
         {error}
       </p>
     );
@@ -179,7 +183,35 @@ const Relatorio = () => {
         >
           {isSending ? <p className="loading"></p> : "Enviar E-mail"}
         </button>
+
+        <button
+          onClick={handlePreview}
+          disabled={loading || error}
+          style={{ marginLeft: "12px" }}
+        >
+          Pré-visualizar E-mail
+        </button>
       </div>
+
+      {showPreview && (
+        <div className="animeLeft">
+          <button
+            className={styles.btnGeral}
+            onClick={() => setShowPreview(false)}
+          >
+            Fechar
+          </button>
+          <h2 style={{ color: "#ff420a", marginBottom: "20px" }}>
+            Pré-visualização do E-mail
+          </h2>
+          <iframe
+            title="preview"
+            style={{ width: "100%", height: "450px", border: "1px solid #ccc" }}
+            srcDoc={previewHtml}
+          ></iframe>
+        </div>
+      )}
+
       {items.map((item) => (
         <div className={styles.card} key={item.ID}>
           <div>
